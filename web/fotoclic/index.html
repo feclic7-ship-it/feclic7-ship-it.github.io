@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foto Clic Studio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --green:#00c46a;
+  --green2:#00ff88;
+  --dark:#070707;
+  --dark2:#111111;
+  --white:#ffffff;
+  --gray:#b9b9b9;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--dark);
+  color:white;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:'';
+  position:fixed;
+  width:500px;
+  height:500px;
+  background:rgba(0,196,106,.08);
+  border-radius:50%;
+  top:-200px;
+  right:-200px;
+  filter:blur(80px);
+  z-index:-1;
+}
+
+body::after{
+  content:'';
+  position:fixed;
+  width:400px;
+  height:400px;
+  background:rgba(0,255,136,.05);
+  border-radius:50%;
+  bottom:-150px;
+  left:-150px;
+  filter:blur(100px);
+  z-index:-1;
+}
+
+section{
+  padding:100px 8%;
+}
+
+a{
+  text-decoration:none;
+  color:white;
+}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  background:
+  linear-gradient(rgba(0,0,0,.78),rgba(0,0,0,.85)),
+  url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1600&auto=format&fit=crop');
+  background-size:cover;
+  background-position:center;
+  position:relative;
+}
+
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to right, rgba(0,0,0,.7), transparent);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:1300px;
+  width:100%;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.badge{
+  display:inline-block;
+  padding:12px 22px;
+  border-radius:50px;
+  background:rgba(0,255,136,.08);
+  border:1px solid rgba(0,255,136,.2);
+  color:var(--green2);
+  margin-bottom:25px;
+  backdrop-filter:blur(10px);
+  animation:fadeUp 1s ease;
+}
+
+.hero h1{
+  font-size:4.2rem;
+  line-height:1.1;
+  margin-bottom:25px;
+  animation:fadeUp 1.2s ease;
+}
+
+.hero p{
+  color:#d6d6d6;
+  line-height:1.9;
+  font-size:1.1rem;
+  margin-bottom:35px;
+  animation:fadeUp 1.4s ease;
+}
+
+.buttons{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  animation:fadeUp 1.6s ease;
+}
+
+.btn{
+  padding:16px 34px;
+  border-radius:16px;
+  font-weight:600;
+  transition:.35s;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,var(--green),var(--green2));
+  color:black;
+  box-shadow:0 10px 30px rgba(0,255,136,.2);
+}
+
+.btn-primary:hover{
+  transform:translateY(-4px);
+}
+
+.btn-secondary{
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.04);
+  backdrop-filter:blur(10px);
+}
+
+.btn-secondary:hover{
+  border-color:rgba(0,255,136,.3);
+  background:rgba(0,255,136,.08);
+}
+
+.hero-image{
+  position:relative;
+  animation:float 6s ease-in-out infinite;
+}
+
+.hero-image::before{
+  content:'';
+  position:absolute;
+  inset:-10px;
+  background:linear-gradient(135deg,rgba(0,255,136,.2),transparent);
+  border-radius:40px;
+  filter:blur(30px);
+}
+
+.hero-image img{
+  position:relative;
+  width:100%;
+  height:580px;
+  object-fit:cover;
+  border-radius:35px;
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.section-title h2{
+  font-size:3rem;
+  margin-bottom:15px;
+}
+
+.section-title p{
+  color:var(--gray);
+}
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:28px;
+}
+
+.service-card{
+  background:linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);
+  padding:35px;
+  border-radius:30px;
+  transition:.4s;
+  position:relative;
+  overflow:hidden;
+}
+
+.service-card::before{
+  content:'';
+  position:absolute;
+  width:100%;
+  height:5px;
+  background:linear-gradient(to right,var(--green),var(--green2));
+  top:0;
+  left:-100%;
+  transition:.5s;
+}
+
+.service-card:hover::before{
+  left:0;
+}
+
+.service-card:hover{
+  transform:translateY(-10px);
+  border-color:rgba(0,255,136,.2);
+  box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+.service-icon{
+  width:70px;
+  height:70px;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2rem;
+  background:rgba(0,255,136,.08);
+  border:1px solid rgba(0,255,136,.15);
+  margin-bottom:20px;
+}
+
+.service-card h3{
+  margin-bottom:15px;
+  font-size:1.5rem;
+}
+
+.service-card p{
+  color:#cfcfcf;
+  line-height:1.8;
+}
+
+.gallery{
+  background:var(--dark2);
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+
+.gallery-item{
+  overflow:hidden;
+  border-radius:25px;
+  position:relative;
+}
+
+.gallery-item img{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+  transition:.5s;
+}
+
+.gallery-item:hover img{
+  transform:scale(1.08);
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.info-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:30px;
+  padding:40px;
+}
+
+.info-card h3{
+  font-size:2rem;
+  margin-bottom:30px;
+}
+
+.info-item{
+  margin-bottom:22px;
+  color:#d4d4d4;
+  line-height:1.9;
+}
+
+.cta-box{
+  background:linear-gradient(145deg, rgba(0,255,136,.08), rgba(255,255,255,.03));
+  border:1px solid rgba(0,255,136,.15);
+  border-radius:40px;
+  padding:80px 30px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.cta-box::before{
+  content:'';
+  position:absolute;
+  width:300px;
+  height:300px;
+  background:rgba(0,255,136,.08);
+  border-radius:50%;
+  filter:blur(70px);
+  top:-100px;
+  right:-100px;
+}
+
+.cta-box h2{
+  position:relative;
+  font-size:3rem;
+  margin-bottom:20px;
+}
+
+.cta-box p{
+  position:relative;
+  max-width:700px;
+  margin:auto;
+  color:#d4d4d4;
+  line-height:1.9;
+  margin-bottom:35px;
+}
+
+footer{
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;
+  padding:35px;
+  color:#8e8e8e;
+}
+
+.whatsapp{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  width:68px;
+  height:68px;
+  background:linear-gradient(135deg,var(--green),var(--green2));
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2rem;
+  color:black;
+  z-index:999;
+  box-shadow:0 15px 35px rgba(0,255,136,.25);
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.08)}
+  100%{transform:scale(1)}
+}
+
+@keyframes float{
+  0%{transform:translateY(0px)}
+  50%{transform:translateY(-10px)}
+  100%{transform:translateY(0px)}
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(max-width:980px){
+
+  .hero-content,
+  .info-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:3rem;
+  }
+
+  .hero-image img{
+    height:420px;
+  }
+
+  .section-title h2,
+  .cta-box h2{
+    font-size:2.3rem;
+  }
+
+}
+
+@media(max-width:600px){
+
+  section{
+    padding:80px 6%;
+  }
+
+  .hero h1{
+    font-size:2.4rem;
+  }
+
+  .buttons{
+    flex-direction:column;
+  }
+
+  .btn{
+    text-align:center;
+  }
+
+  .hero-image img{
+    height:320px;
+  }
+
+}
+
+</style>
+</head>
+<body>
+
+<a href="https://wa.me/527491010264" class="whatsapp">
+💬
+</a>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div>
+
+<div class="badge">
+📸 Foto & Video Profesional
+</div>
+
+<h1>
+FOTO CLIC
+</h1>
+
+<p>
+Cubrimos todo tipo de eventos sociales, realizamos sesiones fotográficas y fotografía publicitaria para marcas y empresas.
+</p>
+
+<div class="buttons">
+<a href="https://wa.me/527491010264" class="btn btn-primary">
+Contactar por WhatsApp
+</a>
+
+<a href="#servicios" class="btn btn-secondary">
+Ver Servicios
+</a>
+</div>
+
+</div>
+
+<div class="hero-image">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+</div>
+
+</section>
+
+<section id="servicios">
+
+<div class="section-title reveal">
+<h2>Nuestros Servicios</h2>
+<p>Selecciona el servicio que deseas ver.</p>
+</div>
+
+<div class="services-grid">
+
+<a href="caritas.html" class="service-card reveal">
+<div class="service-icon">🎭</div>
+<h3>Caritas</h3>
+<p>Cuadros personalizados con las caritas de tu bebé.</p>
+</a>
+
+<a href="cuadros.html" class="service-card reveal">
+<div class="service-icon">🖼️</div>
+<h3>Cuadros</h3>
+<p>Cuadros profesionales personalizados.</p>
+</a>
+
+<a href="cabina360.html" class="service-card reveal">
+<div class="service-icon">✨</div>
+<h3>Cabina 360</h3>
+<p>Experiencia interactiva para cualquier evento social.</p>
+</a>
+
+<a href="paquetes.html" class="service-card reveal">
+<div class="service-icon">🎥</div>
+<h3>Paquetes para Eventos</h3>
+<p>Fotografía y video profesional para eventos sociales.</p>
+</a>
+
+<a href="contenido.html" class="service-card reveal">
+<div class="service-icon">🏢</div>
+<h3>Contenido para Negocios</h3>
+<p>Contenido visual profesional para empresas y marcas.</p>
+</a>
+
+<a href="sesiones.html" class="service-card reveal">
+<div class="service-icon">📷</div>
+<h3>Sesión de Fotos</h3>
+<p>Sesiones para parejas, familias, niños y estudio.</p>
+</a>
+
+<a href="invitaciones.html" class="service-card reveal">
+<div class="service-icon">💌</div>
+<h3>Invitaciones Digitales</h3>
+<p>Diseños modernos y elegantes para cualquier ocasión.</p>
+</a>
+
+<a href="restauracion.html" class="service-card reveal">
+<div class="service-icon">🛠️</div>
+<h3>Restauración de Fotos</h3>
+<p>Recuperamos fotografías antiguas o dañadas.</p>
+</a>
+
+</div>
+
+</section>
+
+<section class="gallery">
+
+<div class="section-title reveal">
+<h2>Galería</h2>
+<p>Momentos reales capturados profesionalmente.</p>
+</div>
+
+<div class="gallery-grid">
+
+<div class="gallery-item reveal">
+<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="gallery-item reveal">
+<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="gallery-item reveal">
+<img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="gallery-item reveal">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="info-grid">
+
+<div class="info-card reveal">
+<h3>Horario de Atención</h3>
+
+<div class="info-item">
+<strong>Lunes - Viernes:</strong><br>
+9:00 AM - 8:00 PM
+</div>
+
+<div class="info-item">
+<strong>Sábado:</strong><br>
+9:00 AM - 5:00 PM
+</div>
+
+<div class="info-item">
+<strong>Domingo:</strong><br>
+Previa cita
+</div>
+
+</div>
+
+<div class="info-card reveal">
+<h3>Contacto</h3>
+
+<div class="info-item">
+<strong>WhatsApp:</strong><br>
+749 105 5026
+</div>
+
+<div class="info-item">
+<strong>Ubicación:</strong><br>
+Nezahualcóyotl Sur 24, El Mirador, 90204 Heroica Cdad. de Calpulalpan, Tlax., Calpulalpan, Mexico
+</div>
+
+<div class="info-item">
+<strong>Facebook:</strong><br>
+FotoClicCalpulalpan
+</div>
+
+<a href="https://wa.me/527491055026" class="btn btn-primary">
+Solicitar Información
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="cta-box reveal">
+<h2>
+Haz que tu evento se vea increíble.
+</h2>
+
+<p>
+Agenda hoy mismo tu sesión fotográfica o cobertura profesional.
+</p>
+
+<a href="https://wa.me/527491055026" class="btn btn-primary">
+Enviar WhatsApp
+</a>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Foto Clic Studio • Fotografía & Video Profesional <br>
+Diseño de Paginas Web - +52 749 104 0729
+</footer>
+
+<script>
+
+const reveals = document.querySelectorAll('.reveal');
+
+window.addEventListener('scroll', revealElements);
+
+function revealElements(){
+
+  reveals.forEach(el => {
+
+    const windowHeight = window.innerHeight;
+    const top = el.getBoundingClientRect().top;
+
+    if(top < windowHeight - 100){
+      el.classList.add('active');
+    }
+
+  })
+
+}
+
+revealElements();
+
+</script>
+
+</body>
+</html>
