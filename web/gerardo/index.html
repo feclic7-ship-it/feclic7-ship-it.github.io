@@ -1,0 +1,166 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Redes de Computadoras</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <div class="overlay"></div>
+
+    <nav>
+      <h2>Redes Informáticas</h2>
+
+      <button class="menu-btn" id="menuBtn">
+        ☰
+      </button>
+
+      <ul id="menu">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#redes">¿Qué es?</a></li>
+        <li><a href="#tipos">Tipos</a></li>
+        <li><a href="#topologia">Topologías</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-content" id="inicio">
+      <h1>Redes de Computadoras</h1>
+      <p>
+        Aprende de forma clara y moderna qué son las redes,
+        sus tipos y las topologías más utilizadas.
+      </p>
+
+      <a href="#redes" class="btn">
+        Ver información
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="card" id="redes">
+      <h2>¿Qué es una red de computadoras?</h2>
+
+      <p>
+        Una red de computadoras es un conjunto de dispositivos
+        conectados entre sí con el objetivo de compartir
+        información, recursos y servicios mediante medios físicos
+        o inalámbricos.
+      </p>
+
+      <p>
+        Gracias a las redes es posible enviar archivos,
+        navegar por internet, imprimir documentos desde
+        distintos equipos y comunicarse en tiempo real.
+      </p>
+
+      <div class="info-box">
+        <h3>Ejemplos de dispositivos en una red:</h3>
+        <ul>
+          <li>Computadoras</li>
+          <li>Celulares</li>
+          <li>Servidores</li>
+          <li>Impresoras</li>
+          <li>Routers y switches</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card" id="tipos">
+      <h2>Tipos de redes</h2>
+
+      <div class="cards-grid">
+
+        <div class="mini-card">
+          <h3>LAN</h3>
+          <p>
+            Red de área local. Se utiliza en casas,
+            escuelas u oficinas pequeñas.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>MAN</h3>
+          <p>
+            Red de área metropolitana. Conecta
+            varias redes dentro de una ciudad.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>WAN</h3>
+          <p>
+            Red de área amplia. Conecta dispositivos
+            a grandes distancias, como Internet.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>WLAN</h3>
+          <p>
+            Red inalámbrica que funciona mediante Wi-Fi
+            sin necesidad de cables.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="card" id="topologia">
+      <h2>¿Qué es la topología de red?</h2>
+
+      <p>
+        La topología de red es la forma en la que se organizan
+        y conectan los dispositivos dentro de una red.
+      </p>
+
+      <div class="topologias">
+
+        <div class="topologia-card">
+          <h3>Topología Estrella</h3>
+          <p>
+            Todos los dispositivos se conectan a un punto central,
+            generalmente un switch o router.
+          </p>
+        </div>
+
+        <div class="topologia-card">
+          <h3>Topología Bus</h3>
+          <p>
+            Todos los equipos comparten un mismo cable principal.
+          </p>
+        </div>
+
+        <div class="topologia-card">
+          <h3>Topología Anillo</h3>
+          <p>
+            Los dispositivos se conectan formando un círculo.
+          </p>
+        </div>
+
+        <div class="topologia-card">
+          <h3>Topología Malla</h3>
+          <p>
+            Cada dispositivo puede conectarse con varios equipos
+            para mejorar la comunicación.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p><strong>Creada por:</strong> JOHAN GERARDO CASTILLO</p>
+    <p><strong>Grupo:</strong> 411</p>
+    <p>Colegio de Bachilleres COBAT 03.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
