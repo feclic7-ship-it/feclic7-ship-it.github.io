@@ -12,7 +12,7 @@ AOS.init({
 // =========================
 
 // CAMBIA ESTA FECHA
-const targetDate = new Date(2055, 11, 31, 23, 59, 59).getTime();
+const targetDate = new Date(2026, 11, 31, 23, 59, 59).getTime();
 
 const days = document.getElementById("days");
 const hours = document.getElementById("hours");
