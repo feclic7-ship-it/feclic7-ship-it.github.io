@@ -1,0 +1,672 @@
+:root{
+
+--gold:#c6a76a;
+--gold-light:#e4d2ad;
+
+--pink:#f8f1ee;
+--pink-soft:#fcf8f6;
+
+--dark:#444;
+--white:#fff;
+
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:'Montserrat',sans-serif;
+background:var(--pink-soft);
+color:var(--dark);
+overflow-x:hidden;
+
+}
+
+/* =========================
+BOTON MUSICA
+========================= */
+
+#musicBtn{
+
+position:fixed;
+right:25px;
+bottom:25px;
+
+width:60px;
+height:60px;
+
+border:none;
+border-radius:50%;
+
+background:var(--gold);
+color:white;
+
+font-size:20px;
+cursor:pointer;
+
+z-index:999;
+
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+
+height:100vh;
+position:relative;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+overflow:hidden;
+
+}
+
+.hero-image{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+}
+
+.overlay{
+
+position:absolute;
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.45);
+
+}
+
+.hero-content{
+
+position:relative;
+z-index:10;
+
+text-align:center;
+color:white;
+
+padding:20px;
+
+}
+
+.hero-content span{
+
+letter-spacing:4px;
+text-transform:uppercase;
+
+font-size:14px;
+
+}
+
+.hero-content h1{
+
+font-family:'Great Vibes',cursive;
+
+font-size:120px;
+font-weight:normal;
+
+margin:10px 0;
+
+color:#fff;
+
+}
+
+.hero-content p{
+
+max-width:650px;
+margin:auto;
+
+line-height:1.8;
+
+}
+
+.btn{
+
+display:inline-block;
+
+margin-top:30px;
+
+padding:15px 40px;
+
+background:var(--gold);
+
+color:white;
+text-decoration:none;
+
+border-radius:50px;
+
+transition:.3s;
+
+}
+
+.btn:hover{
+
+transform:translateY(-5px);
+
+}
+
+/* =========================
+CONTADOR
+========================= */
+
+.countdown-section{
+
+padding:120px 20px;
+
+text-align:center;
+
+background:white;
+
+}
+
+.countdown-section h2{
+
+font-family:'Cormorant Garamond',serif;
+font-size:50px;
+
+margin-bottom:40px;
+
+}
+
+.countdown{
+
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+
+}
+
+.box{
+
+width:150px;
+height:150px;
+
+background:white;
+
+border-radius:20px;
+
+display:flex;
+flex-direction:column;
+
+justify-content:center;
+align-items:center;
+
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+}
+
+.box span{
+
+font-size:50px;
+font-weight:700;
+
+color:var(--gold);
+
+}
+
+.box small{
+
+margin-top:10px;
+
+}
+
+/* =========================
+MENSAJE
+========================= */
+
+.message{
+
+padding:120px 30px;
+
+text-align:center;
+
+max-width:900px;
+margin:auto;
+
+}
+
+.message h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:55px;
+
+margin-bottom:20px;
+
+}
+
+.message p{
+
+font-size:20px;
+line-height:1.9;
+
+}
+
+/* =========================
+PADRES
+========================= */
+
+.parents{
+
+padding:120px 30px;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:40px;
+
+background:white;
+
+text-align:center;
+
+}
+
+.parents h2{
+
+font-family:'Cormorant Garamond',serif;
+font-size:45px;
+
+margin-bottom:20px;
+
+color:var(--gold);
+
+}
+
+.parents p{
+
+font-size:18px;
+margin:10px 0;
+
+}
+
+/* =========================
+EVENTOS
+========================= */
+
+.events{
+
+padding:120px 30px;
+
+text-align:center;
+
+}
+
+.events h2{
+
+font-family:'Cormorant Garamond',serif;
+font-size:55px;
+
+margin-bottom:50px;
+
+}
+
+.cards{
+
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+
+gap:40px;
+
+}
+
+.card{
+
+width:350px;
+
+background:white;
+
+padding:40px;
+
+border-radius:25px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+}
+
+.card i{
+
+font-size:45px;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+}
+
+.card h3{
+
+font-size:30px;
+
+margin-bottom:15px;
+
+}
+
+.card a{
+
+display:inline-block;
+
+margin-top:20px;
+
+text-decoration:none;
+
+color:white;
+
+background:var(--gold);
+
+padding:12px 30px;
+
+border-radius:40px;
+
+}
+
+/* =========================
+TIMELINE
+========================= */
+
+.timeline{
+
+padding:120px 20px;
+
+background:white;
+
+text-align:center;
+
+}
+
+.timeline h2{
+
+font-size:55px;
+
+font-family:'Cormorant Garamond',serif;
+
+margin-bottom:60px;
+
+}
+
+.timeline-container{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+
+gap:25px;
+
+}
+
+.timeline-item{
+
+padding:30px;
+
+background:var(--pink);
+
+border-radius:20px;
+
+}
+
+.timeline-item i{
+
+font-size:35px;
+
+color:var(--gold);
+
+margin-bottom:15px;
+
+}
+
+/* =========================
+DRESS CODE
+========================= */
+
+.dresscode{
+
+padding:120px 20px;
+
+text-align:center;
+
+}
+
+.dresscode h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:55px;
+
+}
+
+.dresscode i{
+
+font-size:80px;
+
+color:var(--gold);
+
+margin:30px 0;
+
+}
+
+.dresscode p{
+
+font-size:22px;
+
+}
+
+/* =========================
+REGALOS
+========================= */
+
+.gift{
+
+padding:120px 20px;
+
+background:white;
+
+text-align:center;
+
+}
+
+.gift h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:55px;
+
+margin-bottom:20px;
+
+}
+
+.bank{
+
+margin-top:30px;
+
+display:inline-block;
+
+padding:30px 50px;
+
+border:2px solid var(--gold);
+
+border-radius:20px;
+
+}
+
+/* =========================
+WHATSAPP
+========================= */
+
+.confirm{
+
+padding:120px 20px;
+
+text-align:center;
+
+}
+
+.confirm h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:55px;
+
+margin-bottom:20px;
+
+}
+
+.whatsapp{
+
+display:inline-block;
+
+margin-top:30px;
+
+padding:18px 40px;
+
+background:#25D366;
+
+color:white;
+
+text-decoration:none;
+
+border-radius:50px;
+
+font-size:18px;
+
+font-weight:600;
+
+}
+
+/* =========================
+GALERIA
+========================= */
+
+.gallery{
+
+padding:120px 20px;
+
+background:white;
+
+text-align:center;
+
+}
+
+.gallery h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:55px;
+
+margin-bottom:50px;
+
+}
+
+.gallery-grid{
+
+columns:3;
+
+column-gap:15px;
+
+}
+
+.gallery-grid img{
+
+width:100%;
+
+margin-bottom:15px;
+
+border-radius:20px;
+
+transition:.4s;
+
+}
+
+.gallery-grid img:hover{
+
+transform:scale(1.03);
+
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+
+padding:120px 20px;
+
+text-align:center;
+
+background:#f5eee8;
+
+}
+
+footer h2{
+
+font-family:'Great Vibes',cursive;
+
+font-size:80px;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+}
+
+footer p{
+
+font-size:18px;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.hero-content h1{
+
+font-size:80px;
+
+}
+
+.parents{
+
+grid-template-columns:1fr;
+
+}
+
+.gallery-grid{
+
+columns:2;
+
+}
+
+.countdown{
+
+gap:10px;
+
+}
+
+.box{
+
+width:120px;
+height:120px;
+
+}
+
+}
