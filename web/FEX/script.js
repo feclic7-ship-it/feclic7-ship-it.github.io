@@ -5,17 +5,19 @@
 const menuBtn = document.querySelector(".menu-btn");
 const navMenu = document.querySelector(".nav-menu");
 
-menuBtn.addEventListener("click", () => {
+if (menuBtn && navMenu) {
 
-    navMenu.classList.toggle("active");
+    menuBtn.addEventListener("click", () => {
 
-    if(navMenu.classList.contains("active")){
-        menuBtn.innerHTML = '<i class="fas fa-times"></i>';
-    }else{
-        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-    }
+        navMenu.classList.toggle("active");
 
-});
+        menuBtn.innerHTML = navMenu.classList.contains("active")
+            ? '<i class="fas fa-times"></i>'
+            : '<i class="fas fa-bars"></i>';
+
+    });
+
+}
 
 /* =========================
    CERRAR MENU MOVIL
@@ -25,31 +27,13 @@ document.querySelectorAll(".nav-menu a").forEach(link => {
 
     link.addEventListener("click", () => {
 
-        navMenu.classList.remove("active");
-        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        if (navMenu) {
+            navMenu.classList.remove("active");
+        }
 
-    });
-
-});
-
-/* =========================
-   SCROLL SUAVE
-========================= */
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-    anchor.addEventListener("click", function(e){
-
-        e.preventDefault();
-
-        const target = document.querySelector(
-            this.getAttribute("href")
-        );
-
-        target.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
+        if (menuBtn) {
+            menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        }
 
     });
 
@@ -63,16 +47,19 @@ const header = document.getElementById("header");
 
 window.addEventListener("scroll", () => {
 
-    if(window.scrollY > 50){
+    if (!header) return;
 
-        header.style.background = "#ffffff";
+    header.style.background = "#ffffff";
+
+    if (window.scrollY > 50) {
+
         header.style.boxShadow =
-        "0 5px 20px rgba(0,0,0,.08)";
+            "0 5px 20px rgba(0,0,0,.08)";
 
-    }else{
+    } else {
 
-        header.style.background = "#ffffff";
-        header.style.boxShadow = "none";
+        header.style.boxShadow =
+            "0 2px 20px rgba(0,0,0,.05)";
 
     }
 
@@ -82,11 +69,11 @@ window.addEventListener("scroll", () => {
    ANIMACIONES AL SCROLL
 ========================= */
 
-const observer = new IntersectionObserver((entries)=>{
+const observer = new IntersectionObserver((entries) => {
 
-    entries.forEach(entry=>{
+    entries.forEach(entry => {
 
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
 
             entry.target.classList.add("show");
 
@@ -94,13 +81,13 @@ const observer = new IntersectionObserver((entries)=>{
 
     });
 
-},{
-    threshold:0.15
+}, {
+    threshold: 0.15
 });
 
 document.querySelectorAll(
-".service-card,.benefit-card,.course-card,.mexico-box,.contact-form"
-).forEach(el=>{
+    ".service-card,.benefit-card,.course-card,.mexico-box,.contact-form"
+).forEach(el => {
 
     el.classList.add("hidden");
     observer.observe(el);
@@ -111,63 +98,66 @@ document.querySelectorAll(
    CONTADORES ANIMADOS
 ========================= */
 
-const counters = document.querySelectorAll(".hero-stats h3");
+const counters =
+document.querySelectorAll(".hero-stats h3");
 
-const startCounter = (counter) => {
+function startCounter(counter) {
 
     const target =
-    parseInt(counter.innerText.replace(/\D/g,''));
+    parseInt(counter.textContent.replace(/\D/g, ""));
+
+    if (isNaN(target)) return;
 
     let current = 0;
 
-    const increment = target / 100;
+    const increment =
+    Math.max(1, target / 100);
 
-    const updateCounter = () => {
+    function updateCounter() {
 
-        if(current < target){
+        if (current < target) {
 
             current += increment;
 
-            counter.innerText =
-            Math.ceil(current) + "+";
+            counter.textContent = Math.min(
+                Math.ceil(current),
+                target
+            );
 
             requestAnimationFrame(updateCounter);
 
-        }else{
+        } else {
 
-            counter.innerText =
-            target + "+";
+            counter.textContent = target;
 
         }
 
-    };
+    }
 
     updateCounter();
 
-};
+}
 
 const counterObserver =
-new IntersectionObserver((entries)=>{
+new IntersectionObserver((entries) => {
 
-    entries.forEach(entry=>{
+    entries.forEach(entry => {
 
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
 
             startCounter(entry.target);
 
-            counterObserver.unobserve(
-                entry.target
-            );
+            counterObserver.unobserve(entry.target);
 
         }
 
     });
 
-},{
-    threshold:0.5
+}, {
+    threshold: 0.5
 });
 
-counters.forEach(counter=>{
+counters.forEach(counter => {
 
     counterObserver.observe(counter);
 
@@ -180,111 +170,95 @@ counters.forEach(counter=>{
 const whatsapp =
 document.querySelector(".whatsapp-float");
 
-setInterval(()=>{
+if (whatsapp) {
 
-    whatsapp.classList.add("pulse");
+    setInterval(() => {
 
-    setTimeout(()=>{
+        whatsapp.classList.add("pulse");
 
-        whatsapp.classList.remove("pulse");
+        setTimeout(() => {
 
-    },1000);
+            whatsapp.classList.remove("pulse");
 
-},4000);
+        }, 1000);
 
-/* =========================
-   REVELAR HERO
-========================= */
-
-window.addEventListener("load",()=>{
-
-    document.body.classList.add("loaded");
-
-});
-
-/* =========================
-   FOOTER AÑO AUTOMATICO
-========================= */
-
-const yearSpan =
-document.querySelector(".year");
-
-if(yearSpan){
-
-    yearSpan.textContent =
-    new Date().getFullYear();
+    }, 4000);
 
 }
 
 /* =========================
-   EFECTO PARALLAX HERO
-========================= */
-
-const heroImage =
-document.querySelector(".hero-image img");
-
-window.addEventListener("scroll",()=>{
-
-    const scroll =
-    window.pageYOffset;
-
-    if(heroImage){
-
-        heroImage.style.transform =
-        `translateY(${scroll * 0.08}px)`;
-
-    }
-
-});
-
-/* =========================
-   FORMULARIO
+   FORMULARIO -> WHATSAPP
 ========================= */
 
 const form =
-document.querySelector(".contact-form");
+document.getElementById("contactForm");
 
-if(form){
+if (form) {
 
-form.addEventListener("submit",(e)=>{
+    form.addEventListener("submit", function (e) {
 
-    e.preventDefault();
+        e.preventDefault();
 
-    const button =
-    form.querySelector("button");
+        const button =
+        form.querySelector("button");
 
-    button.innerHTML =
-    "Enviando...";
+        button.disabled = true;
+        button.textContent = "Enviando...";
 
-    setTimeout(()=>{
+        const nombre =
+        document.getElementById("nombre").value.trim();
 
-        button.innerHTML =
-        "Solicitud Enviada ✓";
+        const correo =
+        document.getElementById("correo").value.trim();
 
-    },1500);
+        const telefono =
+        document.getElementById("telefono").value.trim();
 
-});
+        const mensaje =
+        document.getElementById("mensaje").value.trim();
 
-document.getElementById("contactForm").addEventListener("submit", function(e){
+        const texto = `Hola FEX 👋
 
-e.preventDefault();
+Me interesa recibir una asesoría gratuita.
 
-let nombre = document.getElementById("nombre").value;
-let correo = document.getElementById("correo").value;
-let telefono = document.getElementById("telefono").value;
-let mensaje = document.getElementById("mensaje").value;
+👤 Nombre: ${nombre}
 
-let texto = `Hola, quiero solicitar una asesoría.%0A%0A
-👤 Nombre: ${nombre}%0A
-📧 Correo: ${correo}%0A
-📱 Teléfono: ${telefono}%0A
-📝 Proyecto: ${mensaje}`;
+📧 Correo: ${correo}
 
-window.open(
-`https://wa.me/527491040729?text=${texto}`,
-'_blank'
-);
+📱 Teléfono: ${telefono}
 
-});
+📝 Proyecto:
+${mensaje}`;
+
+        const url =
+        `https://wa.me/527491040729?text=${encodeURIComponent(texto)}`;
+
+        window.open(url, "_blank");
+
+        setTimeout(() => {
+
+            button.textContent =
+            "Solicitud Enviada ✓";
+
+        }, 1000);
+
+        setTimeout(() => {
+
+            button.textContent =
+            "Enviar Solicitud";
+
+            button.disabled = false;
+
+            form.reset();
+
+        }, 3000);
+
+    });
 
 }
+
+/* =========================
+   MENSAJE CONSOLA
+========================= */
+
+console.log("FEX Soluciones Empresariales ✓");
