@@ -1,0 +1,1410 @@
+/* ===================================================
+   ENDOJIMMY
+   Premium Digital Card
+=================================================== */
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Montserrat',sans-serif;
+
+    background:#081d2d;
+
+    color:#ffffff;
+
+    overflow-x:hidden;
+
+    position:relative;
+
+}
+
+/* VARIABLES */
+
+:root{
+
+    --bg:#081d2d;
+    --bg2:#0d2940;
+
+    --white:#ffffff;
+
+    --text:#edf2f5;
+
+    --soft:#b6c6d2;
+
+    --border:rgba(255,255,255,.08);
+
+    --card:rgba(13,36,55,.82);
+
+    --shadow:
+    0 20px 60px rgba(0,0,0,.35);
+
+    --radius:28px;
+
+    --transition:.35s ease;
+
+}
+
+/* SCROLL */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#081d2d;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#7b8d9d;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:white;
+
+}
+
+/* BACKGROUND */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at 20% 20%,
+    rgba(255,255,255,.04),
+    transparent 35%),
+
+    radial-gradient(circle at 85% 30%,
+    rgba(255,255,255,.03),
+    transparent 35%),
+
+    linear-gradient(160deg,
+    #061725,
+    #0a2234,
+    #071c2d);
+
+    z-index:-10;
+
+}
+
+/* GLOWS */
+
+.glow{
+
+    position:fixed;
+
+    border-radius:50%;
+
+    filter:blur(90px);
+
+    opacity:.18;
+
+    transition:1s;
+
+    z-index:-5;
+
+}
+
+.glow1{
+
+    width:320px;
+
+    height:320px;
+
+    background:#5c8fb6;
+
+    top:-120px;
+
+    right:-80px;
+
+}
+
+.glow2{
+
+    width:260px;
+
+    height:260px;
+
+    background:#dce7ef;
+
+    left:-120px;
+
+    bottom:-80px;
+
+    opacity:.08;
+
+}
+
+/* LOADER */
+
+.loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#081d2d;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+    transition:.8s;
+
+}
+
+.loader.hidden{
+
+    opacity:0;
+
+    visibility:hidden;
+
+}
+
+.loader-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.loader-logo{
+
+    width:160px;
+
+    max-width:65vw;
+
+    animation:
+
+    floatLogo 3s ease-in-out infinite;
+
+}
+
+.loader-line{
+
+    width:220px;
+
+    max-width:80vw;
+
+    height:5px;
+
+    margin-top:30px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.08);
+
+    position:relative;
+
+}
+
+.loader-line::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-40%;
+
+    width:40%;
+
+    height:100%;
+
+    background:white;
+
+    animation:loading 1.4s linear infinite;
+
+}
+
+@keyframes loading{
+
+    to{
+
+        left:100%;
+
+    }
+
+}
+
+@keyframes floatLogo{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* CONTAINER */
+
+.container{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:45px 18px 70px;
+
+}
+
+/* CARD */
+
+.card{
+
+    width:100%;
+
+    max-width:520px;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:36px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    padding:40px 26px;
+
+}
+
+/* HERO */
+
+.hero{
+
+    text-align:center;
+
+}
+
+.logo{
+
+    width:180px;
+
+    max-width:65%;
+
+    margin:auto;
+
+    display:block;
+
+    transition:.5s;
+
+}
+
+.logo:hover{
+
+    transform:scale(1.04);
+
+}
+
+.hero h1{
+
+    margin-top:28px;
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    color:white;
+
+}
+
+.hero h2{
+
+    margin-top:10px;
+
+    color:#d8e5ee;
+
+    font-size:1rem;
+
+    font-weight:500;
+
+    letter-spacing:1px;
+
+}
+
+.hero p{
+
+    margin-top:24px;
+
+    line-height:1.8;
+
+    color:var(--soft);
+
+    font-size:.96rem;
+
+}
+
+/* BOTONES */
+
+.buttons{
+
+    margin-top:38px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.btn{
+
+    display:flex;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    color:white;
+
+    border-radius:22px;
+
+    padding:18px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:var(--transition);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-4px);
+
+    border-color:rgba(255,255,255,.18);
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.btn i{
+
+    width:62px;
+
+    height:62px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+    margin-right:18px;
+
+    color:white;
+
+    flex-shrink:0;
+
+}
+
+.whatsapp i{
+
+    background:#25D366;
+
+}
+
+.instagram i{
+
+    background:linear-gradient(
+        45deg,
+        #833AB4,
+        #C13584,
+        #FD1D1D,
+        #FCAF45
+    );
+
+}
+
+.btn strong{
+
+    display:block;
+
+    font-size:1rem;
+
+    letter-spacing:.5px;
+
+}
+
+.btn span{
+
+    display:block;
+
+    margin-top:5px;
+
+    color:var(--soft);
+
+    font-size:.86rem;
+
+}
+
+/*==================================================
+                SECCIONES
+==================================================*/
+
+.section{
+
+    margin-top:55px;
+
+}
+
+.title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:28px;
+
+}
+
+.title span{
+
+    flex:1;
+
+    height:1px;
+
+    background:rgba(255,255,255,.10);
+
+}
+
+.title h3{
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    color:#ffffff;
+
+    white-space:nowrap;
+
+}
+
+
+/*==================================================
+                SERVICIOS
+==================================================*/
+
+.services{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:16px;
+
+}
+
+.service{
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    transition:.35s ease;
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+}
+
+.service.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.service:hover{
+
+    transform:translateY(-6px);
+
+    background:rgba(255,255,255,.08);
+
+    border-color:rgba(255,255,255,.18);
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.18);
+
+}
+
+.service i{
+
+    font-size:18px;
+
+    color:#dbe6ef;
+
+}
+
+.service span{
+
+    color:white;
+
+    font-size:.93rem;
+
+    font-weight:500;
+
+    line-height:1.4;
+
+}
+
+
+/*==================================================
+                GALERÍA
+==================================================*/
+
+.gallery{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:18px;
+
+}
+
+.gallery img{
+
+    width:100%;
+
+    height:260px;
+
+    object-fit:cover;
+
+    border-radius:22px;
+
+    cursor:pointer;
+
+    transition:.45s ease;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.gallery img:hover{
+
+    transform:scale(1.04);
+
+    box-shadow:
+
+    0 20px 40px rgba(0,0,0,.28);
+
+}
+
+
+/*==================================================
+                TESTIMONIOS
+==================================================*/
+
+.testimonial{
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:24px;
+
+    margin-bottom:18px;
+
+    transition:.35s ease;
+
+}
+
+.testimonial:hover{
+
+    transform:translateY(-5px);
+
+    background:rgba(255,255,255,.07);
+
+}
+
+.testimonial:first-child{
+
+    margin-bottom:16px;
+
+}
+
+.testimonial{
+
+    color:#FFD54A;
+
+    font-size:18px;
+
+}
+
+.testimonial p{
+
+    margin-top:14px;
+
+    color:#d9e2e9;
+
+    line-height:1.8;
+
+    font-size:.95rem;
+
+}
+
+
+/*==================================================
+                FOOTER
+==================================================*/
+
+footer{
+
+    margin-top:60px;
+
+    text-align:center;
+
+    color:#8ea5b5;
+
+    font-size:.82rem;
+
+    letter-spacing:1px;
+
+    padding-top:28px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+
+/*==================================================
+            ANIMACIÓN DE APARICIÓN
+==================================================*/
+
+.fade{
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+    transition:
+
+    opacity .8s ease,
+
+    transform .8s ease;
+
+}
+
+.fade.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/*==================================================
+            EFECTO GLASS
+==================================================*/
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+    140deg,
+
+    rgba(255,255,255,.07),
+
+    transparent 45%,
+
+    transparent 70%,
+
+    rgba(255,255,255,.03)
+
+    );
+
+    pointer-events:none;
+
+}
+
+
+/*==================================================
+                SOMBRAS
+==================================================*/
+
+.card:hover{
+
+    box-shadow:
+
+    0 30px 70px rgba(0,0,0,.35);
+
+}
+
+
+/*==================================================
+            EFECTO IMÁGENES
+==================================================*/
+
+.gallery{
+
+    overflow:hidden;
+
+}
+
+.gallery img{
+
+    display:block;
+
+}
+
+
+/*==================================================
+            TRANSICIONES GENERALES
+==================================================*/
+
+button,
+a,
+img,
+.service,
+.testimonial{
+
+    transition:
+
+    .35s ease;
+
+}
+
+/*==================================================
+            RIPPLE EFECTO BOTONES
+==================================================*/
+
+.btn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.ripple{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    transform:scale(0);
+
+    animation:ripple .65s linear;
+
+    background:rgba(255,255,255,.35);
+
+    pointer-events:none;
+
+}
+
+@keyframes ripple{
+
+    to{
+
+        transform:scale(4);
+
+        opacity:0;
+
+    }
+
+}
+
+/*==================================================
+            ANIMACIONES
+==================================================*/
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        box-shadow:0 0 0 0 rgba(255,255,255,.25);
+
+    }
+
+    70%{
+
+        box-shadow:0 0 0 18px rgba(255,255,255,0);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 0 0 rgba(255,255,255,0);
+
+    }
+
+}
+
+@keyframes shine{
+
+    from{
+
+        transform:translateX(-120%);
+
+    }
+
+    to{
+
+        transform:translateX(220%);
+
+    }
+
+}
+
+/*==================================================
+        BRILLO EN BOTONES
+==================================================*/
+
+.btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:60px;
+
+    height:180%;
+
+    left:-80px;
+
+    top:-40%;
+
+    transform:rotate(25deg);
+
+    background:rgba(255,255,255,.15);
+
+    transition:.5s;
+
+}
+
+.btn:hover::before{
+
+    animation:shine .8s;
+
+}
+
+/*==================================================
+            EFECTOS HERO
+==================================================*/
+
+.logo{
+
+    animation:float 5s ease-in-out infinite;
+
+}
+
+.logo:hover{
+
+    animation-play-state:paused;
+
+}
+
+.hero h1{
+
+    animation:fadeUp .8s ease;
+
+}
+
+.hero h2{
+
+    animation:fadeUp 1s ease;
+
+}
+
+.hero p{
+
+    animation:fadeUp 1.2s ease;
+
+}
+
+/*==================================================
+        EFECTO ICONOS
+==================================================*/
+
+.btn i{
+
+    transition:.35s;
+
+}
+
+.btn:hover i{
+
+    transform:scale(1.12) rotate(-8deg);
+
+}
+
+/*==================================================
+        HOVER GALERÍA
+==================================================*/
+
+.gallery img{
+
+    filter:brightness(.97);
+
+}
+
+.gallery img:hover{
+
+    filter:brightness(1.05);
+
+}
+
+/*==================================================
+            RESPONSIVE 1024
+==================================================*/
+
+@media(max-width:1024px){
+
+.card{
+
+    max-width:560px;
+
+}
+
+}
+
+/*==================================================
+            RESPONSIVE TABLET
+==================================================*/
+
+@media(max-width:768px){
+
+.container{
+
+    padding:25px 15px 60px;
+
+}
+
+.card{
+
+    border-radius:30px;
+
+    padding:30px 22px;
+
+}
+
+.logo{
+
+    width:150px;
+
+}
+
+.hero h1{
+
+    font-size:1.8rem;
+
+}
+
+.hero h2{
+
+    font-size:.95rem;
+
+}
+
+.hero p{
+
+    font-size:.92rem;
+
+}
+
+.gallery img{
+
+    height:220px;
+
+}
+
+}
+
+/*==================================================
+            RESPONSIVE CELULAR
+==================================================*/
+
+@media(max-width:600px){
+
+.services{
+
+    grid-template-columns:1fr;
+
+}
+
+.gallery{
+
+    grid-template-columns:1fr;
+
+}
+
+.gallery img{
+
+    height:240px;
+
+}
+
+.btn{
+
+    padding:16px;
+
+}
+
+.btn i{
+
+    width:56px;
+
+    height:56px;
+
+    font-size:24px;
+
+}
+
+.section{
+
+    margin-top:45px;
+
+}
+
+}
+
+/*==================================================
+            RESPONSIVE PEQUEÑO
+==================================================*/
+
+@media(max-width:430px){
+
+body{
+
+    font-size:15px;
+
+}
+
+.card{
+
+    padding:25px 18px;
+
+    border-radius:24px;
+
+}
+
+.logo{
+
+    width:135px;
+
+}
+
+.hero h1{
+
+    font-size:1.55rem;
+
+}
+
+.hero h2{
+
+    font-size:.88rem;
+
+}
+
+.hero p{
+
+    font-size:.88rem;
+
+    line-height:1.7;
+
+}
+
+.btn strong{
+
+    font-size:.95rem;
+
+}
+
+.btn span{
+
+    font-size:.78rem;
+
+}
+
+.gallery img{
+
+    height:200px;
+
+}
+
+}
+
+/*==================================================
+            RESPONSIVE 360
+==================================================*/
+
+@media(max-width:360px){
+
+.logo{
+
+    width:120px;
+
+}
+
+.hero h1{
+
+    font-size:1.35rem;
+
+}
+
+.hero p{
+
+    font-size:.84rem;
+
+}
+
+.btn{
+
+    padding:14px;
+
+}
+
+.btn i{
+
+    width:50px;
+
+    height:50px;
+
+    font-size:22px;
+
+    margin-right:12px;
+
+}
+
+.service{
+
+    padding:16px;
+
+}
+
+}
+
+/*==================================================
+            PANTALLAS GRANDES
+==================================================*/
+
+@media(min-width:1400px){
+
+.container{
+
+    padding:70px;
+
+}
+
+.card{
+
+    max-width:620px;
+
+}
+
+.hero h1{
+
+    font-size:2.4rem;
+
+}
+
+.hero p{
+
+    font-size:1rem;
+
+}
+
+.gallery img{
+
+    height:300px;
+
+}
+
+}
+
+/*==================================================
+        MEJORAS MÓVILES
+==================================================*/
+
+@media (hover:none){
+
+.btn:hover{
+
+    transform:none;
+
+}
+
+.service:hover{
+
+    transform:none;
+
+}
+
+.gallery img:hover{
+
+    transform:none;
+
+}
+
+}
+
+/*==================================================
+        SELECCIÓN DE TEXTO
+==================================================*/
+
+::selection{
+
+    background:#d8e5ee;
+
+    color:#081d2d;
+
+}
+
+/*==================================================
+            IMÁGENES
+==================================================*/
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+/*==================================================
+            LINKS
+==================================================*/
+
+a{
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+/*==================================================
+            FIN
+==================================================*/
