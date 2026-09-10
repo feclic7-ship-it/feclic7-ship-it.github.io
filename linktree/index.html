@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b5cff">
+  <meta name="description" content="Eleazar Fex — Compartiendo conocimiento. Cursos, programas, recursos y soluciones digitales para tu negocio.">
+  <title>Eleazar Fex | Compartiendo Conocimiento</title>
+
+  <style>
+    :root{
+      --blue:#0b5cff;
+      --blue-2:#00a8ff;
+      --blue-3:#5b7cff;
+      --text:#111827;
+      --muted:#667085;
+      --card:rgba(255,255,255,.78);
+      --border:rgba(255,255,255,.72);
+      --shadow:0 18px 55px rgba(15,23,42,.12);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    html{scroll-behavior:smooth}
+
+    body{
+      min-height:100vh;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",
+                   "Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(0,168,255,.20), transparent 32%),
+        radial-gradient(circle at 90% 12%, rgba(91,124,255,.22), transparent 30%),
+        linear-gradient(145deg,#f7fbff 0%,#eef5ff 48%,#f9fbff 100%);
+      overflow-x:hidden;
+    }
+
+    body::before,
+    body::after{
+      content:"";
+      position:fixed;
+      width:380px;
+      height:380px;
+      border-radius:50%;
+      filter:blur(70px);
+      opacity:.18;
+      pointer-events:none;
+      z-index:-1;
+    }
+
+    body::before{background:#0b5cff;top:18%;left:-230px}
+    body::after{background:#00c6ff;bottom:5%;right:-240px}
+
+    a{text-decoration:none;color:inherit}
+
+    .page{
+      width:min(100%, 760px);
+      margin:0 auto;
+      padding:42px 20px 30px;
+    }
+
+    .profile{
+      text-align:center;
+      animation:fadeUp .7s ease both;
+    }
+
+    .logo{
+      width:92px;
+      height:92px;
+      margin:0 auto 18px;
+      border-radius:28px;
+      display:grid;
+      place-items:center;
+      background:
+        linear-gradient(145deg,rgba(255,255,255,.92),rgba(235,244,255,.78));
+      border:1px solid rgba(255,255,255,.9);
+      box-shadow:0 15px 40px rgba(11,92,255,.13);
+      overflow:hidden;
+      position:relative;
+    }
+
+    /* Sube tu logo reemplazando logo.png */
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:none;
+    }
+
+    .logo-placeholder{
+      font-size:12px;
+      font-weight:700;
+      color:#8a96a8;
+      letter-spacing:.04em;
+    }
+
+    .profile h1{
+      font-size:clamp(28px,6vw,40px);
+      line-height:1.05;
+      letter-spacing:-.045em;
+      font-weight:750;
+    }
+
+    .profile p{
+      margin-top:9px;
+      color:var(--muted);
+      font-size:15px;
+      letter-spacing:.01em;
+    }
+
+    .links{
+      display:grid;
+      gap:13px;
+      margin-top:30px;
+    }
+
+    .link-card{
+      position:relative;
+      display:flex;
+      align-items:center;
+      gap:15px;
+      min-height:68px;
+      padding:12px 17px;
+      border-radius:21px;
+      background:var(--card);
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+      animation:fadeUp .65s ease both;
+    }
+
+    .link-card:nth-child(1){animation-delay:.08s}
+    .link-card:nth-child(2){animation-delay:.14s}
+    .link-card:nth-child(3){animation-delay:.20s}
+    .link-card:nth-child(4){animation-delay:.26s}
+
+    .link-card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 23px 65px rgba(15,23,42,.16);
+      border-color:rgba(11,92,255,.22);
+    }
+
+    .link-card:active{transform:scale(.985)}
+
+    .icon{
+      flex:0 0 44px;
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      font-size:20px;
+      background:linear-gradient(145deg,#eaf3ff,#dceaff);
+    }
+
+    .link-card.primary{
+      color:#fff;
+      background:linear-gradient(135deg,#0757ed 0%,#0b7cff 48%,#00a8ff 100%);
+      box-shadow:0 17px 42px rgba(11,92,255,.27);
+    }
+
+    .link-card.primary .icon{
+      background:rgba(255,255,255,.18);
+      color:#fff;
+    }
+
+    .link-content{
+      min-width:0;
+      flex:1;
+    }
+
+    .link-title{
+      display:block;
+      font-size:16px;
+      font-weight:700;
+      letter-spacing:-.015em;
+    }
+
+    .link-sub{
+      display:block;
+      margin-top:3px;
+      font-size:12px;
+      opacity:.72;
+      line-height:1.3;
+    }
+
+    .arrow{
+      font-size:20px;
+      opacity:.45;
+      transition:transform .2s ease;
+    }
+
+    .link-card:hover .arrow{transform:translateX(3px)}
+
+    .socials{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      margin-top:25px;
+      animation:fadeUp .7s .35s ease both;
+    }
+
+    .social{
+      width:49px;
+      height:49px;
+      display:grid;
+      place-items:center;
+      border-radius:16px;
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(255,255,255,.85);
+      box-shadow:0 12px 30px rgba(15,23,42,.08);
+      font-weight:800;
+      font-size:13px;
+      color:#445066;
+      transition:transform .2s ease, background .2s ease, color .2s ease;
+    }
+
+    .social:hover{
+      transform:translateY(-3px);
+      background:#fff;
+      color:var(--blue);
+    }
+
+    footer{
+      text-align:center;
+      margin-top:28px;
+      color:#98a2b3;
+      font-size:11px;
+      animation:fadeUp .7s .42s ease both;
+    }
+
+    .pulse{
+      position:absolute;
+      inset:0;
+      border-radius:21px;
+      pointer-events:none;
+      opacity:0;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+      transform:translateX(-100%);
+    }
+
+    .primary:hover .pulse{
+      opacity:1;
+      animation:shine .8s ease;
+    }
+
+    @keyframes shine{
+      to{transform:translateX(100%)}
+    }
+
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(12px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    @media (min-width:760px){
+      .page{
+        width:min(100%,760px);
+        padding-top:62px;
+      }
+
+      .links{
+        gap:15px;
+      }
+
+      .link-card{
+        min-height:74px;
+        padding:13px 20px;
+      }
+
+      .icon{
+        width:48px;
+        height:48px;
+      }
+    }
+
+    @media (max-width:420px){
+      .page{padding:30px 15px 24px}
+      .logo{width:84px;height:84px;border-radius:25px}
+      .link-card{min-height:64px;border-radius:19px}
+      .icon{width:42px;height:42px;flex-basis:42px;border-radius:13px}
+      .link-title{font-size:15px}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important;
+        scroll-behavior:auto!important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <header class="profile">
+      <div class="logo" aria-label="Espacio para el logo de Eleazar Fex">
+        <!-- Coloca aquí tu logo: guarda tu imagen como "logo.png" en la misma carpeta -->
+        <img src="logo.png" alt="Logo de Eleazar Fex">
+        <span class="logo-placeholder">TU LOGO</span>
+      </div>
+
+      <h1>Eleazar Fex</h1>
+      <p>Compartiendo Conocimiento</p>
+    </header>
+
+    <section class="links" aria-label="Enlaces principales">
+
+      <a class="link-card primary"
+         href="https://wa.me/527491040729?text=Hola%20Eleazar%2C%20me%20gustar%C3%ADa%20solicitar%20una%20asesor%C3%ADa%20personalizada."
+         target="_blank" rel="noopener noreferrer">
+        <span class="icon">💬</span>
+        <span class="link-content">
+          <span class="link-title">Solicita una asesoría personalizada</span>
+          <span class="link-sub">Cuéntame qué necesitas y te ayudo</span>
+        </span>
+        <span class="arrow">›</span>
+        <span class="pulse"></span>
+      </a>
+
+      <a class="link-card"
+         href="https://sites.google.com/view/eleazarfex/cursos"
+         target="_blank" rel="noopener noreferrer">
+        <span class="icon">🎓</span>
+        <span class="link-content">
+          <span class="link-title">Ver cursos disponibles</span>
+          <span class="link-sub">Aprende a tu ritmo</span>
+        </span>
+        <span class="arrow">›</span>
+      </a>
+
+      <a class="link-card"
+         href="https://sites.google.com/view/eleazarfex/programas"
+         target="_blank" rel="noopener noreferrer">
+        <span class="icon">🚀</span>
+        <span class="link-content">
+          <span class="link-title">Ver programas y recursos</span>
+          <span class="link-sub">Herramientas y recursos digitales</span>
+        </span>
+        <span class="arrow">›</span>
+      </a>
+
+      <a class="link-card"
+         href="https://wa.me/527491040729?text=Hola%20Eleazar%2C%20quiero%20contarte%20una%20idea%20para%20una%20soluci%C3%B3n%20digital%20para%20mi%20negocio."
+         target="_blank" rel="noopener noreferrer">
+        <span class="icon">💻</span>
+        <span class="link-content">
+          <span class="link-title">Creo soluciones para tu negocio</span>
+          <span class="link-sub">Cuéntame qué necesitas y hacemos una solución a tu medida</span>
+        </span>
+        <span class="arrow">›</span>
+      </a>
+
+    </section>
+
+    <nav class="socials" aria-label="Redes sociales">
+      <a class="social" href="https://www.youtube.com/@EleazarFEX"
+         target="_blank" rel="noopener noreferrer" aria-label="YouTube">YT</a>
+
+      <a class="social" href="https://www.facebook.com/eleazarfex1/"
+         target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+
+      <a class="social" href="https://sites.google.com/view/eleazarfex/inicio"
+         target="_blank" rel="noopener noreferrer" aria-label="Google Sites">WEB</a>
+    </nav>
+
+    <footer>
+      © <span id="year"></span> Eleazar Fex
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Cuando agregues logo.png, se muestra automáticamente y desaparece "TU LOGO".
+    const logo = document.querySelector(".logo img");
+    const placeholder = document.querySelector(".logo-placeholder");
+
+    logo.addEventListener("load", () => {
+      logo.style.display = "block";
+      placeholder.style.display = "none";
+    });
+
+    logo.addEventListener("error", () => {
+      logo.style.display = "none";
+      placeholder.style.display = "block";
+    });
+  </script>
+</body>
+</html>
