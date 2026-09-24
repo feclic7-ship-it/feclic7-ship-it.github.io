@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis XV Años | Nelly Guadalupe Portado Castro</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- AOS -->
+    <link
+        href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         MÚSICA
+    =========================================== -->
+
+    <audio id="music" loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!--
+        SEGUNDA CANCIÓN
+        Cuando tengas la segunda canción puedes agregarla
+        como otro source o cambiar la lógica del reproductor.
+    -->
+
+    <button id="musicBtn" aria-label="Reproducir música">
+        <i class="fas fa-music"></i>
+    </button>
+
+
+    <!-- ==========================================
+         HERO
+    =========================================== -->
+
+    <section class="hero">
+
+        <div class="overlay"></div>
+
+        <img
+            src="assets/portada.jpg"
+            class="hero-image"
+            alt="Nelly Guadalupe Portado Castro"
+        >
+
+        <div class="hero-content">
+
+            <span>Mis XV Años</span>
+
+            <h1>Nelly</h1>
+
+            <h3>Guadalupe Portado Castro</h3>
+
+            <p>
+                Hay momentos inolvidables que se atesoran en el corazón
+                para siempre, por esa razón quiero que compartas conmigo
+                este día tan especial.
+            </p>
+
+            <a href="#contador" class="btn">
+                Ver Invitación
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         CONTADOR
+    =========================================== -->
+
+    <section id="contador" class="countdown-section">
+
+        <h2 data-aos="fade-up">
+            Faltan <br>
+            05/12/2026
+        </h2>
+
+        <div class="countdown">
+
+            <div class="box">
+                <span id="days">00</span>
+                <small>Días</small>
+            </div>
+
+            <div class="box">
+                <span id="hours">00</span>
+                <small>Horas</small>
+            </div>
+
+            <div class="box">
+                <span id="minutes">00</span>
+                <small>Minutos</small>
+            </div>
+
+            <div class="box">
+                <span id="seconds">00</span>
+                <small>Segundos</small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         MENSAJE
+    =========================================== -->
+
+    <section
+        class="message"
+        data-aos="fade-up"
+    >
+
+        <span class="section-subtitle">
+            Un día para recordar
+        </span>
+
+        <h2>
+            Con la bendición de Dios
+        </h2>
+
+        <p>
+            Hoy comienzo una nueva etapa en mi vida y quiero compartir
+            este momento tan especial con las personas que más quiero.
+        </p>
+
+    </section>
+
+
+    <!-- ==========================================
+         PADRES Y PADRINOS
+    =========================================== -->
+
+    <section class="parents">
+
+        <div data-aos="fade-right">
+
+            <i class="fas fa-heart"></i>
+
+            <h2>
+                Mis Padres
+            </h2>
+
+            <p>
+                José Óscar Portado Ramírez
+            </p>
+
+            <p>
+                Adail Saraí Castro Espejel
+            </p>
+
+        </div>
+
+
+        <div data-aos="fade-up">
+
+            <i class="fas fa-rings-wedding"></i>
+
+            <h2>
+                Mis Padrinos
+            </h2>
+
+            <p>
+                Geovanni Lazcano Crúz
+            </p>
+
+            <p>
+                Nallely Portado Ramírez
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         EVENTOS
+    =========================================== -->
+
+    <section class="events">
+
+        <span class="section-subtitle">
+            Celebremos juntos
+        </span>
+
+        <h2 data-aos="fade-up">
+            Acompáñame a celebrar
+        </h2>
+
+
+        <div class="cards">
+
+            <!-- MISA -->
+
+            <div
+                class="card"
+                data-aos="zoom-in"
+            >
+
+                <div class="card-icon">
+                    <i class="fas fa-church"></i>
+                </div>
+
+                <h3>
+                    Ceremonia Religiosa
+                </h3>
+
+                <div class="event-time">
+                    <i class="far fa-clock"></i>
+                    4:30 PM
+                </div>
+
+                <p>
+                    Parroquia de la Inmaculada
+                    Concepción de María
+                </p>
+
+                <p class="address">
+                    Calle 2 Oriente No. 23,
+                    El Mirador
+                </p>
+
+                <a
+                    href="https://maps.app.goo.gl/rv3kmeroZBT3Mr7k9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i class="fas fa-location-dot"></i>
+                    Ver ubicación
+                </a>
+
+            </div>
+
+
+            <!-- RECEPCIÓN -->
+
+            <div
+                class="card"
+                data-aos="zoom-in"
+            >
+
+                <div class="card-icon">
+                    <i class="fas fa-champagne-glasses"></i>
+                </div>
+
+                <h3>
+                    Recepción
+                </h3>
+
+                <div class="event-time reception-text">
+                    <i class="fas fa-heart"></i>
+                    Al terminar la ceremonia
+                </div>
+
+                <p>
+                    Salón "Fiesta"
+                </p>
+
+                <p class="address">
+                    Calle 3 Oriente No. 12,
+                    Colonia El Mirador
+                </p>
+
+                <a
+                    href="https://maps.app.goo.gl/5zr5r2AdUJnLSmt99"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i class="fas fa-location-dot"></i>
+                    Ver ubicación
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+<!--* ==========================================*
+*        ITINERARIO
+*   =========================================== *-->
+
+<section class="timeline">
+
+    <span class="section-subtitle">
+        Este será nuestro día
+    </span>
+
+    <h2 data-aos="fade-up">
+        Itinerario
+    </h2>
+
+
+    <div class="timeline-container">
+
+        <div
+            class="timeline-item"
+            data-aos="fade-up"
+        >
+
+            <div class="timeline-icon">
+                <i class="fas fa-church"></i>
+            </div>
+
+            <h3>
+                4:30 PM
+            </h3>
+
+            <p>
+                Misa
+            </p>
+
+        </div>
+
+
+        <div
+            class="timeline-item"
+            data-aos="fade-up"
+        >
+
+            <div class="timeline-icon">
+                <i class="fas fa-building"></i>
+            </div>
+
+            <h3>
+                6:00 PM
+            </h3>
+
+            <p>
+                Salón de evento
+            </p>
+
+        </div>
+
+
+        <div
+            class="timeline-item"
+            data-aos="fade-up"
+        >
+
+            <div class="timeline-icon">
+                <i class="fas fa-utensils"></i>
+            </div>
+
+            <h3>
+                6:15 PM
+            </h3>
+
+            <p>
+                Comida
+            </p>
+
+        </div>
+
+
+        <div
+            class="timeline-item"
+            data-aos="fade-up"
+        >
+
+            <div class="timeline-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+
+            <h3>
+                7:30 PM
+            </h3>
+
+            <p>
+                Vals
+            </p>
+
+        </div>
+
+
+        <div
+            class="timeline-item"
+            data-aos="fade-up"
+        >
+
+            <div class="timeline-icon">
+                <i class="fas fa-cake-candles"></i>
+            </div>
+
+            <h3>
+                9:00 PM
+            </h3>
+
+            <p>
+                Pastel
+            </p>
+
+        </div>
+
+
+        <div
+            class="timeline-item"
+            data-aos="fade-up"
+        >
+
+            <div class="timeline-icon">
+                <i class="fas fa-drum"></i>
+            </div>
+
+            <h3>
+                10:00 PM
+            </h3>
+
+            <p>
+                Batucada
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- ==========================================
+         CONFIRMACIÓN
+    =========================================== -->
+
+    <section class="confirm">
+
+        <span class="section-subtitle">
+            Tu presencia es muy importante
+        </span>
+
+        <h2>
+            Confirma tu asistencia
+        </h2>
+
+        <p>
+            Será un honor compartir contigo este día tan especial.
+        </p>
+
+        <a
+            href="https://wa.me/522411256338?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%20XV%20A%C3%B1os%20de%20Nelly%20Guadalupe%20Portado%20Castro.%20%C2%A1Ser%C3%A1%20un%20placer%20acompa%C3%B1arla%20en%20este%20d%C3%ADa%20tan%20especial!"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="whatsapp"
+        >
+
+            <i class="fab fa-whatsapp"></i>
+
+            Confirmar por WhatsApp
+
+        </a>
+
+    </section>
+
+
+    <!-- ==========================================
+         GALERÍA
+    =========================================== -->
+
+    <section class="gallery">
+
+        <span class="section-subtitle">
+            Momentos especiales
+        </span>
+
+        <h2>
+            Mi Historia
+        </h2>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+                <img
+                    src="assets/1.jpg"
+                    alt="Nelly - Foto 1"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="gallery-item">
+                <img
+                    src="assets/2.jpg"
+                    alt="Nelly - Foto 2"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="gallery-item">
+                <img
+                    src="assets/3.jpg"
+                    alt="Nelly - Foto 3"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="gallery-item">
+                <img
+                    src="assets/4.jpg"
+                    alt="Nelly - Foto 4"
+                    loading="lazy"
+                >
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+
+    <footer>
+
+        <div class="footer-decoration">
+            <i class="fas fa-heart"></i>
+        </div>
+
+        <h2>
+            ¡Te Espero!
+        </h2>
+
+        <p>
+            Gracias por formar parte de este día tan especial.
+        </p>
+
+        <span>
+            Nelly Guadalupe Portado Castro
+        </span>
+
+    </footer>
+
+
+    <!-- ==========================================
+         AOS
+    =========================================== -->
+
+    <script
+        src="https://unpkg.com/aos@2.3.4/dist/aos.js">
+    </script>
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

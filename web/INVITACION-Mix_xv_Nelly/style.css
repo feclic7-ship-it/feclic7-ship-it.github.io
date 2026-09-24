@@ -1,0 +1,1758 @@
+/* =========================================================
+   XV AÑOS NELLY GUADALUPE PORTADO CASTRO
+   PALETA VERDE CEMENTO / SAGE PREMIUM
+========================================================= */
+
+:root {
+
+    --cement-green: #879b8c;
+    --cement-green-dark: #65796b;
+    --cement-green-deep: #4f6255;
+
+    --cement-light: #dce4de;
+    --cement-soft: #edf1ed;
+
+    --cream: #faf9f5;
+    --white: #ffffff;
+
+    --dark: #3e4741;
+    --dark-soft: #667069;
+
+    --gold: #b6a27a;
+
+    --shadow:
+        0 15px 45px rgba(65, 80, 70, .10);
+
+    --shadow-hover:
+        0 25px 60px rgba(65, 80, 70, .18);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family: 'Montserrat', sans-serif;
+
+    background: var(--cream);
+
+    color: var(--dark);
+
+    overflow-x: hidden;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   SELECCIÓN DE TEXTO
+========================================================= */
+
+::selection {
+    background: var(--cement-green);
+    color: white;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--cement-soft);
+}
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        linear-gradient(
+            to bottom,
+            var(--cement-green),
+            var(--cement-green-dark)
+        );
+
+    border-radius: 50px;
+}
+
+
+/* =========================================================
+   BOTÓN DE MÚSICA
+========================================================= */
+
+#musicBtn {
+
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 62px;
+    height: 62px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--cement-green),
+            var(--cement-green-dark)
+        );
+
+    color: white;
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    z-index: 9999;
+
+    box-shadow:
+        0 15px 35px rgba(79, 98, 85, .30);
+
+    transition: .4s ease;
+
+}
+
+#musicBtn:hover {
+
+    transform:
+        scale(1.1)
+        rotate(5deg);
+
+    box-shadow:
+        0 20px 45px rgba(79, 98, 85, .40);
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    height: 100vh;
+
+    min-height: 650px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+}
+
+.hero-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 1;
+
+    transform:
+        scale(1.05);
+
+    will-change: transform;
+
+}
+
+.overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(30, 40, 34, .18),
+            rgba(30, 40, 34, .68)
+        );
+
+    z-index: 2;
+
+}
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 30%,
+            rgba(0,0,0,.18)
+        );
+
+    z-index: 2;
+
+    pointer-events: none;
+
+}
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 3;
+
+    text-align: center;
+
+    padding:
+        30px;
+
+    max-width: 900px;
+
+    color: white;
+
+    opacity: 0;
+
+    transform:
+        translateY(40px);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+
+}
+
+.loaded .hero-content {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================================
+   HERO TIPOGRAFÍA
+========================================================= */
+
+.hero-content span {
+
+    display: block;
+
+    letter-spacing: 6px;
+
+    text-transform: uppercase;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    margin-bottom: 5px;
+
+}
+
+.hero-content h1 {
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:
+        clamp(80px, 12vw, 150px);
+
+    line-height: 1;
+
+    font-weight: normal;
+
+    margin:
+        10px 0;
+
+    text-shadow:
+        0 5px 25px rgba(0,0,0,.25);
+
+}
+
+.hero-content h3 {
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(28px, 4vw, 42px);
+
+    font-weight: 500;
+
+    margin-bottom: 25px;
+
+}
+
+.hero-content p {
+
+    max-width: 700px;
+
+    margin:
+        0 auto;
+
+    font-size:
+        clamp(15px, 1.5vw, 18px);
+
+    line-height: 1.9;
+
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top: 35px;
+
+    padding:
+        15px 42px;
+
+    background:
+        rgba(255,255,255,.12);
+
+    border:
+        1px solid rgba(255,255,255,.65);
+
+    backdrop-filter:
+        blur(10px);
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 50px;
+
+    font-weight: 600;
+
+    transition: .4s ease;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.18);
+
+}
+
+.btn:hover {
+
+    background: white;
+
+    color:
+        var(--cement-green-dark);
+
+    transform:
+        translateY(-5px)
+        scale(1.03);
+
+}
+
+
+/* =========================================================
+   SECCIONES
+========================================================= */
+
+section {
+
+    padding:
+        120px 30px;
+
+}
+
+
+/* =========================================================
+   SUBTÍTULOS
+========================================================= */
+
+.section-subtitle {
+
+    display: block;
+
+    color:
+        var(--cement-green-dark);
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        4px;
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+
+    margin-bottom:
+        12px;
+
+}
+
+
+/* =========================================================
+   TÍTULOS GENERALES
+========================================================= */
+
+h2 {
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-weight:
+        500;
+
+}
+
+
+/* =========================================================
+   CONTADOR
+========================================================= */
+
+.countdown-section {
+
+    background:
+        var(--white);
+
+    text-align:
+        center;
+
+}
+
+.countdown-section h2 {
+
+    font-size:
+        clamp(45px, 6vw, 65px);
+
+    margin-bottom:
+        50px;
+
+}
+
+.countdown {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        20px;
+
+}
+
+.box {
+
+    width:
+        145px;
+
+    height:
+        145px;
+
+    background:
+        var(--cream);
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    box-shadow:
+        var(--shadow);
+
+    border:
+        1px solid
+        rgba(101,121,107,.15);
+
+    transition:
+        .4s ease;
+
+}
+
+.box:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        var(--shadow-hover);
+
+}
+
+.box span {
+
+    font-size:
+        50px;
+
+    font-weight:
+        600;
+
+    color:
+        var(--cement-green-dark);
+
+    line-height:
+        1;
+
+}
+
+.box small {
+
+    margin-top:
+        12px;
+
+    font-size:
+        13px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        1px;
+
+    color:
+        var(--dark-soft);
+
+}
+
+
+/* =========================================================
+   MENSAJE
+========================================================= */
+
+.message {
+
+    max-width:
+        950px;
+
+    margin:
+        auto;
+
+    text-align:
+        center;
+
+    background:
+        var(--cream);
+
+}
+
+.message h2 {
+
+    font-size:
+        clamp(45px, 6vw, 65px);
+
+    margin-bottom:
+        25px;
+
+    color:
+        var(--cement-green-deep);
+
+}
+
+.message p {
+
+    max-width:
+        750px;
+
+    margin:
+        auto;
+
+    font-size:
+        clamp(17px, 2vw, 21px);
+
+    line-height:
+        2;
+
+}
+
+
+/* =========================================================
+   PADRES / PADRINOS
+========================================================= */
+
+.parents {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        35px;
+
+    background:
+        var(--white);
+
+    text-align:
+        center;
+
+}
+
+.parents div {
+
+    position:
+        relative;
+
+    background:
+        var(--cement-soft);
+
+    padding:
+        55px 35px;
+
+    border-radius:
+        25px;
+
+    border:
+        1px solid
+        rgba(101,121,107,.10);
+
+    transition:
+        .4s ease;
+
+}
+
+.parents div:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        var(--shadow-hover);
+
+}
+
+.parents div > i {
+
+    font-size:
+        28px;
+
+    color:
+        var(--gold);
+
+    margin-bottom:
+        15px;
+
+}
+
+.parents h2 {
+
+    font-size:
+        48px;
+
+    color:
+        var(--cement-green-dark);
+
+    margin-bottom:
+        25px;
+
+}
+
+.parents p {
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        24px;
+
+    margin:
+        8px 0;
+
+}
+
+
+/* =========================================================
+   EVENTOS
+========================================================= */
+
+.events {
+
+    text-align:
+        center;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--cream),
+            #f3f5f1
+        );
+
+}
+
+.events h2 {
+
+    font-size:
+        clamp(45px, 6vw, 65px);
+
+    margin-bottom:
+        60px;
+
+    color:
+        var(--cement-green-deep);
+
+}
+
+.cards {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        stretch;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        35px;
+
+}
+
+.card {
+
+    width:
+        min(390px, 100%);
+
+    background:
+        rgba(255,255,255,.92);
+
+    padding:
+        45px 35px;
+
+    border-radius:
+        30px;
+
+    box-shadow:
+        var(--shadow);
+
+    border:
+        1px solid
+        rgba(101,121,107,.10);
+
+    transition:
+        .4s ease;
+
+}
+
+.card:hover {
+
+    transform:
+        translateY(-10px);
+
+    box-shadow:
+        var(--shadow-hover);
+
+}
+
+.card-icon {
+
+    width:
+        85px;
+
+    height:
+        85px;
+
+    margin:
+        0 auto 25px;
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        var(--cement-soft);
+
+}
+
+.card-icon i {
+
+    font-size:
+        38px;
+
+    color:
+        var(--cement-green-dark);
+
+}
+
+.card h3 {
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        34px;
+
+    font-weight:
+        600;
+
+    margin-bottom:
+        15px;
+
+}
+
+.event-time {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    color:
+        var(--cement-green-dark);
+
+    font-weight:
+        600;
+
+    margin-bottom:
+        18px;
+
+}
+
+.reception-text {
+
+    font-size:
+        13px;
+
+    max-width:
+        260px;
+
+}
+
+.card p {
+
+    font-size:
+        16px;
+
+    line-height:
+        1.7;
+
+}
+
+.card .address {
+
+    color:
+        var(--dark-soft);
+
+    font-size:
+        14px;
+
+    margin-top:
+        8px;
+
+}
+
+.card a {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    margin-top:
+        25px;
+
+    padding:
+        12px 25px;
+
+    background:
+        var(--cement-green-dark);
+
+    color:
+        white;
+
+    text-decoration:
+        none;
+
+    border-radius:
+        50px;
+
+    transition:
+        .3s ease;
+
+    font-size:
+        14px;
+
+}
+
+.card a:hover {
+
+    background:
+        var(--cement-green-deep);
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline {
+
+    background:
+        var(--white);
+
+    text-align:
+        center;
+
+}
+
+.timeline h2 {
+
+    font-size:
+        clamp(45px, 6vw, 65px);
+
+    margin-bottom:
+        60px;
+
+    color:
+        var(--cement-green-deep);
+
+}
+
+.timeline-container {
+
+    max-width:
+        1200px;
+
+    margin:
+        auto;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap:
+        20px;
+
+}
+
+.timeline-item {
+
+    background:
+        var(--cement-soft);
+
+    padding:
+        35px 20px;
+
+    border-radius:
+        22px;
+
+    transition:
+        .4s ease;
+
+}
+
+.timeline-item:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        var(--shadow);
+
+}
+
+.timeline-icon {
+
+    width:
+        65px;
+
+    height:
+        65px;
+
+    margin:
+        0 auto 20px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--white);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+}
+
+.timeline-icon i {
+
+    font-size:
+        25px;
+
+    color:
+        var(--cement-green-dark);
+
+}
+
+.timeline-item h3 {
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        27px;
+
+    margin-bottom:
+        8px;
+
+}
+
+.timeline-item p {
+
+    font-size:
+        14px;
+
+}
+
+
+/* =========================================================
+   CONFIRMACIÓN
+========================================================= */
+
+.confirm {
+
+    text-align:
+        center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e7ece8,
+            #f8f7f2
+        );
+
+}
+
+.confirm h2 {
+
+    font-size:
+        clamp(45px, 6vw, 65px);
+
+    margin-bottom:
+        20px;
+
+    color:
+        var(--cement-green-deep);
+
+}
+
+.confirm p {
+
+    font-size:
+        18px;
+
+}
+
+.whatsapp {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        10px;
+
+    margin-top:
+        30px;
+
+    padding:
+        17px 35px;
+
+    background:
+        #25D366;
+
+    color:
+        white;
+
+    text-decoration:
+        none;
+
+    font-weight:
+        600;
+
+    border-radius:
+        50px;
+
+    transition:
+        .4s ease;
+
+    box-shadow:
+        0 15px 35px
+        rgba(37,211,102,.20);
+
+}
+
+.whatsapp:hover {
+
+    transform:
+        translateY(-5px)
+        scale(1.03);
+
+    box-shadow:
+        0 20px 40px
+        rgba(37,211,102,.30);
+
+}
+
+
+/* =========================================================
+   GALERÍA
+========================================================= */
+
+.gallery {
+
+    background:
+        var(--white);
+
+    text-align:
+        center;
+
+}
+
+.gallery h2 {
+
+    font-size:
+        clamp(45px, 6vw, 65px);
+
+    margin-bottom:
+        50px;
+
+    color:
+        var(--cement-green-deep);
+
+}
+
+.gallery-grid {
+
+    max-width:
+        1200px;
+
+    margin:
+        auto;
+
+    columns:
+        3;
+
+    column-gap:
+        20px;
+
+}
+
+.gallery-item {
+
+    break-inside:
+        avoid;
+
+    margin-bottom:
+        20px;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        22px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.10);
+
+}
+
+.gallery-grid img {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        auto;
+
+    transition:
+        .5s ease;
+
+    cursor:
+        pointer;
+
+}
+
+.gallery-grid img:hover {
+
+    transform:
+        scale(1.04);
+
+}
+
+
+/* =========================================================
+   FOTO ACTIVA
+========================================================= */
+
+.gallery-grid img.active-photo {
+
+    transform:
+        scale(1.08);
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        110px 30px;
+
+    text-align:
+        center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d8e1da,
+            #edf1ed
+        );
+
+}
+
+.footer-decoration {
+
+    color:
+        var(--gold);
+
+    font-size:
+        22px;
+
+    margin-bottom:
+        15px;
+
+}
+
+footer h2 {
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:
+        clamp(65px, 9vw, 100px);
+
+    color:
+        var(--cement-green-dark);
+
+    margin-bottom:
+        15px;
+
+}
+
+footer p {
+
+    font-size:
+        17px;
+
+    margin-bottom:
+        15px;
+
+}
+
+footer span {
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        24px;
+
+    color:
+        var(--cement-green-deep);
+
+}
+
+
+/* =========================================================
+   ELEMENTOS FLOTANTES
+========================================================= */
+
+.floating-flower {
+
+    position:
+        fixed;
+
+    top:
+        -50px;
+
+    width:
+        25px;
+
+    height:
+        25px;
+
+    background:
+        rgba(135,155,140,.25);
+
+    border-radius:
+        50%;
+
+    pointer-events:
+        none;
+
+    z-index:
+        5;
+
+    animation:
+        fall linear infinite;
+
+}
+
+@keyframes fall {
+
+    0% {
+
+        transform:
+            translateY(-50px)
+            rotate(0deg);
+
+        opacity:
+            0;
+
+    }
+
+    10% {
+
+        opacity:
+            1;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity:
+            0;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - PANTALLAS GRANDES
+========================================================= */
+
+@media (min-width: 1400px) {
+
+    .hero-content {
+
+        max-width:
+            1100px;
+
+    }
+
+    .timeline-container {
+
+        max-width:
+            1300px;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET GRANDE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .timeline-container {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
+
+    .gallery-grid {
+
+        columns:
+            3;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    section {
+
+        padding:
+            90px 25px;
+
+    }
+
+    .parents {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .timeline-container {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .gallery-grid {
+
+        columns:
+            2;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+    section {
+
+        padding:
+            75px 18px;
+
+    }
+
+    .hero {
+
+        min-height:
+            650px;
+
+    }
+
+    .hero-content {
+
+        padding:
+            20px;
+
+    }
+
+    .hero-content span {
+
+        letter-spacing:
+            3px;
+
+        font-size:
+            11px;
+
+    }
+
+    .hero-content h1 {
+
+        font-size:
+            clamp(62px, 20vw, 85px);
+
+    }
+
+    .hero-content h3 {
+
+        font-size:
+            24px;
+
+        line-height:
+            1.2;
+
+    }
+
+    .hero-content p {
+
+        font-size:
+            14px;
+
+        line-height:
+            1.7;
+
+    }
+
+    .btn {
+
+        padding:
+            14px 30px;
+
+        font-size:
+            14px;
+
+    }
+
+    .countdown {
+
+        gap:
+            10px;
+
+    }
+
+    .box {
+
+        width:
+            78px;
+
+        height:
+            78px;
+
+    }
+
+    .box span {
+
+        font-size:
+            27px;
+
+    }
+
+    .box small {
+
+        font-size:
+            9px;
+
+        margin-top:
+            7px;
+
+    }
+
+    .parents div {
+
+        padding:
+            40px 20px;
+
+    }
+
+    .parents h2 {
+
+        font-size:
+            40px;
+
+    }
+
+    .parents p {
+
+        font-size:
+            21px;
+
+    }
+
+    .cards {
+
+        gap:
+            20px;
+
+    }
+
+    .card {
+
+        padding:
+            35px 22px;
+
+    }
+
+    .timeline-container {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .gallery-grid {
+
+        columns:
+            1;
+
+    }
+
+    .whatsapp {
+
+        padding:
+            15px 25px;
+
+        font-size:
+            14px;
+
+    }
+
+    #musicBtn {
+
+        width:
+            54px;
+
+        height:
+            54px;
+
+        right:
+            15px;
+
+        bottom:
+            15px;
+
+        font-size:
+            18px;
+
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES MUY PEQUEÑOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .hero-content h1 {
+
+        font-size:
+            58px;
+
+    }
+
+    .hero-content h3 {
+
+        font-size:
+            20px;
+
+    }
+
+    .box {
+
+        width:
+            68px;
+
+        height:
+            68px;
+
+    }
+
+    .box span {
+
+        font-size:
+            23px;
+
+    }
+
+    .box small {
+
+        font-size:
+            8px;
+
+    }
+
+}
